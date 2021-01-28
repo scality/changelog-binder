@@ -40,8 +40,12 @@ classifiers = [
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/scality/changelog-binder/issues"
 
+[tool.poetry.scripts]
+changelog-binder = 'changelog_binder.cli:main'
+
 [tool.poetry.dependencies]
 python = "^3.6.1"
+click = "^7.1.2"
 
 [tool.poetry.dev-dependencies]
 tox-poetry-installer = {extras = ["poetry"], version = "^0.6.2"}
