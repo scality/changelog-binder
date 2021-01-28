@@ -1,1 +1,4 @@
 /dist/
+/.tox/
+__pycache__/
+*.egg-info/
