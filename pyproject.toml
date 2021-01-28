@@ -1,0 +1,44 @@
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "changelog-binder"
+version = "0.1.0"
+description = """\
+    Tooling to generate changelogs and release notes from snippets stored in a \
+    project Git repository, compatible with the GitWaterFlow branching model.\
+    """
+license = "Apache-2.0"
+authors = [
+    "Guillaume Demonet <guillaume.demonet@scality.com>",
+    "Nicolas Trangez <nicolas.trangez@scality.com>",
+]
+readme = "README.rst"
+homepage = "https://github.com/scality/changelog-binder"
+repository = "git+https://github.com/scality/changelog-binder.git"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Environment :: Console",
+    "Framework :: Sphinx :: Extension",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Documentation",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: Markup :: reStructuredText",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/scality/changelog-binder/issues"
+
+[tool.poetry.dependencies]
+python = "^3.6"
