@@ -33,3 +33,9 @@ def test_list_from():
     runner = CliRunner()
     result = runner.invoke(cli.main, ["list", "--from", "0.1.0"])
     assert result.exit_code == 1
+
+
+def test_render():
+    runner = CliRunner()
+    result = runner.invoke(cli.main, ["render"])
+    assert result.exit_code == 1
