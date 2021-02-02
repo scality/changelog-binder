@@ -1,0 +1,66 @@
+---
+name: CI
+
+"on":
+  push:
+    branches:
+      - "master"
+      - "development/*"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  lint:
+    name: "Lint code and documentation"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+
+      - name: Bootstrap poetry
+        shell: bash
+        run: |
+          python -m ensurepip
+          python -m pip install poetry
+
+      - name: Install dependencies
+        shell: bash
+        run: python -m poetry install --no-root
+
+      - name: Run linters
+        shell: bash
+        run: python -m poetry run tox -e lint
+
+  tests:
+    name: "Run tests using Python ${{ matrix.python-version }}"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Bootstrap poetry
+        shell: bash
+        run: |
+          python -m ensurepip
+          python -m pip install poetry
+
+      - name: Install dependencies
+        shell: bash
+        run: python -m poetry install --no-root
+
+      - name: Run tox
+        shell: bash
+        run: python -m poetry run tox -e py$( echo ${{ matrix.python-version }} | sed s/\\.// )
