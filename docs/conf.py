@@ -14,6 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import changelog_binder
 
 # -- Project information -----------------------------------------------------
 
@@ -22,7 +23,7 @@ copyright = "2021, Scality"
 author = "Nicolas Trangez"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.0"
+release = changelog_binder.__version__
 
 
 # -- General configuration ---------------------------------------------------

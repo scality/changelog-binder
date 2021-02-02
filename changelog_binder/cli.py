@@ -1,9 +1,11 @@
 import click
 
+import changelog_binder
 import changelog_binder.types
 
 
 @click.group()
+@click.version_option(changelog_binder.__version__)
 def main():
     """Main entry-point of the changelog-binder tool"""
 

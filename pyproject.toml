@@ -46,6 +46,8 @@ changelog-binder = 'changelog_binder.cli:main'
 [tool.poetry.dependencies]
 python = "^3.6.1"
 click = "^7.1.2"
+# Need to specify "<2" to be compatible with poetry and tox-poetry-installer
+importlib-metadata = {version = "<2", python = "<3.8"}
 
 [tool.poetry.dev-dependencies]
 tox-poetry-installer = {extras = ["poetry"], version = "^0.6.2"}
