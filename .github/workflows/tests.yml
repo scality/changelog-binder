@@ -1,0 +1,116 @@
+---
+name: Tests
+
+"on":
+  push:
+    branches:
+      - "master"
+      - "main"
+      - "development/*"
+  pull_request:
+
+jobs:
+  tests:
+    name: "${{ matrix.session }} ${{ matrix.python-version }}"
+    runs-on: "ubuntu-latest"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { python-version: 3.9, session: "flake8" }
+          - { python-version: 3.9, session: "safety" }
+          - { python-version: 3.9, session: "mypy" }
+          - { python-version: 3.8, session: "mypy" }
+          - { python-version: 3.7, session: "mypy" }
+          - { python-version: 3.6, session: "mypy" }
+          - { python-version: 3.9, session: "tests" }
+          - { python-version: 3.8, session: "tests" }
+          - { python-version: 3.7, session: "tests" }
+          - { python-version: 3.6, session: "tests" }
+          - { python-version: 3.9, session: "typeguard" }
+          - { python-version: 3.9, session: "xdoctest" }
+          - { python-version: 3.9, session: "docs" }
+
+    env:
+      NOXSESSION: "${{ matrix.session }}"
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Set up Python "${{ matrix.python-version }}"
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: "${{ matrix.python-version }}"
+
+      - name: Upgrade pip
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pip
+          pip --version
+
+      - name: Install Poetry
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt poetry
+          poetry --version
+
+      - name: Install Nox
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt nox nox-poetry
+          nox --version
+
+      - name: Run Nox
+        run: |
+          nox --force-color --python="${{ matrix.python-version }}"
+
+      - name: Upload coverage data
+        if: always() && matrix.session == 'tests'
+        uses: "actions/upload-artifact@v2.2.3"
+        with:
+          name: coverage-data
+          path: ".coverage.*"
+
+      - name: Upload documentation
+        if: matrix.session == 'docs'
+        uses: "actions/upload-artifact@v2.2.3"
+        with:
+          name: docs
+          path: "docs/_build"
+
+  coverage:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.9
+
+      - name: Upgrade pip
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pip
+          pip --version
+      - name: Install Poetry
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt poetry
+          poetry --version
+      - name: Install Nox
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt nox nox-poetry
+          nox --version
+      - name: Download coverage data
+        uses: actions/download-artifact@v2.0.9
+        with:
+          name: coverage-data
+
+      - name: Combine coverage data and display human readable report
+        run: |
+          nox --force-color --session=coverage
+
+      - name: Create coverage report
+        run: |
+          nox --force-color --session=coverage -- xml
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v1.5.0
