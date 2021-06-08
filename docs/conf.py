@@ -5,7 +5,7 @@ import changelog_binder
 
 project = "changelog_binder"
 author = "Scality"
-copyright = f"{datetime.now().year}, Scality"  # noqa: A001
+copyright = f"{datetime.now().year}, {author}"  # noqa: A001
 
 version = changelog_binder.__version__
 release = version
