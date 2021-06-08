@@ -19,10 +19,12 @@ else:
 __metadata__ = cast(Callable[[str], Distribution], distribution)(__name__).metadata
 __license__ = __metadata__["License"]
 """Package license identifier.
+
 .. versionadded:: 0.0.1
 """
 __version__ = __metadata__["Version"]
 """Package version identifier.
+
 .. versionadded:: 0.0.1
 """
 del __metadata__
