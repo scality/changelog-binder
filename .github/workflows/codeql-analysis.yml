@@ -16,6 +16,15 @@ name: "CodeQL"
 jobs:
   analyze:
     name: Analyze
+
+    # Publishing analysis results requires write access, which is not
+    # permitted for merges performed by `dependabot[bot]`. This causes
+    # this action to fail (when someone e.g., uses `@dependabot merge`)
+    # which is undesirable.
+    # CodeQL ran on the Dependabot PR anyway, so the branch is somewhat
+    # unlikely to break.
+    if: ${{ github.event_name != 'push' || (github.event_name == 'push' && github.actor != 'dependabot[bot]') }}
+
     runs-on: ubuntu-latest
 
     strategy:
