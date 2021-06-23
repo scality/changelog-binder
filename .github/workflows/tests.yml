@@ -9,6 +9,9 @@ name: Tests
       - "development/*"
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   tests:
     name: "${{ matrix.session }} ${{ matrix.python-version }}"
