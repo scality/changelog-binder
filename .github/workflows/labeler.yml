@@ -7,6 +7,14 @@ name: Labeler
       - "main"
       - "master"
       - "development/*"
+    paths:
+      - '.github/labels.yml'
+      - '.github/workflows/labeler.yml'
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   labeler:
@@ -17,5 +25,3 @@ jobs:
 
       - name: Run Labeler
         uses: crazy-max/ghaction-github-labeler@v3.1.1
-        with:
-          skip-delete: true
