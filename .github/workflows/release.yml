@@ -8,6 +8,9 @@ name: Release
       - "master"
       - "development/*"
 
+permissions:
+  contents: write
+
 jobs:
   release:
     name: Release
