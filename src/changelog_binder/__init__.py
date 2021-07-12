@@ -1,4 +1,4 @@
-"""changelog_binder: generate changelogs and release notes from VCS.
+"""changelog-binder: generate changelogs and release notes from VCS.
 
 Tooling to generate changelogs and release notes from snippets stored in a
 project Git_ repository, compatible with the GitWaterFlow_ branching model.
