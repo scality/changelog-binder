@@ -3,7 +3,7 @@ from datetime import datetime
 
 import changelog_binder
 
-project = "changelog_binder"
+project = "changelog-binder"
 author = "Scality"
 copyright = f"{datetime.now().year}, {author}"  # noqa: A001
 
