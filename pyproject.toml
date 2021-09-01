@@ -73,7 +73,7 @@ black = "^20.8b1"
 flake8-black = "^0.2.3"
 safety = "^1.10.3"
 Sphinx = "^4.1.2"
-furo = "^2021.8.17b43"
+furo = "^2021.8.31"
 sphinx-argparse = "^0.2.5"
 coverage = {version = "^5.5", extras = ["toml"]}
 pygments = "^2.10.0"
