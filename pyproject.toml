@@ -78,7 +78,7 @@ furo = "^2021.11.23"
 sphinx-argparse = "^0.3.1"
 coverage = {version = "^6.2", extras = ["toml"]}
 pygments = "^2.10.0"
-pytest = "^6.2.5"
+pytest = "^7.0.0"
 typeguard = "^2.13.3"
 xdoctest = {version = "^0.15.10", extras = ["colors"]}
 flake8-pytest-style = "^1.5.1"
