@@ -62,7 +62,7 @@ changelog-binder = "changelog_binder.__main__:main"
 python = "^3.6.1"
 
 [tool.poetry.dev-dependencies]
-mypy = "^0.930"
+mypy = "^0.971"
 flake8 = "^4.0.1"
 flake8-bandit = "^2.1.2"
 flake8-bugbear = "^21.11.29"
