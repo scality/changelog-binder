@@ -244,7 +244,7 @@ toml = "*"
 
 [[package]]
 name = "flake8-bugbear"
-version = "21.11.29"
+version = "22.8.22"
 description = "A plugin for flake8 finding likely bugs and design problems in your program. Contains warnings that don't belong in pyflakes and pycodestyle."
 category = "dev"
 optional = false
@@ -822,8 +822,8 @@ optional = false
 python-versions = ">=3.5"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-devhelp"
@@ -834,8 +834,8 @@ optional = false
 python-versions = ">=3.5"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-htmlhelp"
@@ -846,8 +846,8 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
-test = ["pytest", "html5lib"]
+test = ["html5lib", "pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-jsmath"
@@ -858,7 +858,7 @@ optional = false
 python-versions = ">=3.5"
 
 [package.extras]
-test = ["pytest", "flake8", "mypy"]
+test = ["mypy", "flake8", "pytest"]
 
 [[package]]
 name = "sphinxcontrib-qthelp"
@@ -869,8 +869,8 @@ optional = false
 python-versions = ">=3.5"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-serializinghtml"
@@ -881,8 +881,8 @@ optional = false
 python-versions = ">=3.5"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "stevedore"
@@ -1001,7 +1001,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "b58caf97f0aece0ac4b577a8916d1fa805e06a08274ec584bfa3d945982a2c7c"
+content-hash = "d51b3a1d6e880b80880149f72943ef10562215b2f0178643cd2b3d9e9bc9d316"
 
 [metadata.files]
 alabaster = [
@@ -1133,8 +1133,8 @@ flake8-black = [
     {file = "flake8_black-0.2.4-py3-none-any.whl", hash = "sha256:0a70dfd97c8439827f365dc6dbc6c8c9cc087f0833625c6cc6848ff7876256be"},
 ]
 flake8-bugbear = [
-    {file = "flake8-bugbear-21.11.29.tar.gz", hash = "sha256:8b04cb2fafc6a78e1a9d873bd3988e4282f7959bb6b0d7c1ae648ec09b937a7b"},
-    {file = "flake8_bugbear-21.11.29-py36.py37.py38-none-any.whl", hash = "sha256:179e41ddae5de5e3c20d1f61736feeb234e70958fbb56ab3c28a67739c8e9a82"},
+    {file = "flake8-bugbear-22.8.22.tar.gz", hash = "sha256:1d240736dc93ecad9ff21e1d521283b9461d132b3ff2170569bd5ff3dacda385"},
+    {file = "flake8_bugbear-22.8.22-py3-none-any.whl", hash = "sha256:b5718bf5d0d28a4cfd15054f4706fc2936f7339ed8366b919a1979eb5df50764"},
 ]
 flake8-builtins = [
     {file = "flake8-builtins-1.5.3.tar.gz", hash = "sha256:09998853b2405e98e61d2ff3027c47033adbdc17f9fe44ca58443d876eb00f3b"},
